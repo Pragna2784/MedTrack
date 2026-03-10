@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Doctor Appointments</h2>
+<table border="1">
+<tr>
+<th>ID</th><th>Patient</th><th>Date</th><th>Time</th><th>Status</th><th>Action</th>
+</tr>
+{% for a in appointments %}
+<tr>
+<td>{{ a.id }}</td>
+<td>{{ a.patient_email }}</td>
+<td>{{ a.date }}</td>
+<td>{{ a.time }}</td>
+<td>{{ a.status }}</td>
+<td>
+{% if a.status=="Pending" %}
+<a href="/accept/{{a.id}}">Accept</a> |
+<a href="/reject/{{a.id}}">Reject</a>
+{% else %}
+No Action
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
