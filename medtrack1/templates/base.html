@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MedTrack Healthcare</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+<div class="nav-left">
+<h2>🏥 MedTrack</h2>
+</div>
+
+<div class="nav-right">
+
+<a href="/">Home</a>
+<a href="/login">Login</a>
+<a href="/register">Register</a>
+
+{% if session.get("user") %}
+<a href="/logout">Logout</a>
+{% endif %}
+
+</div>
+
+</nav>
+
+
+<!-- PAGE CONTENT -->
+
+<div class="page-container">
+
+{% block content %}
+{% endblock %}
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>© 2026 MedTrack Healthcare System</p>
+
+</footer>
+
+</body>
+
+</html>

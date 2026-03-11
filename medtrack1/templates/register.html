@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-card">
+
+<h2>Register</h2>
+
+<form method="POST" onsubmit="return validateRegister()">
+
+<label>Name</label>
+<input type="text" name="name" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<label>Password</label>
+<input type="password" name="password" required>
+
+<label>Role</label>
+
+<select name="role" required>
+    <option value="patient">Patient</option>
+    <option value="doctor">Doctor</option>
+</select>
+
+<button type="submit" class="btn">Register</button>
+
+</form>
+
+</div>
+
+{% endblock %}
