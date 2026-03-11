@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Submit Diagnosis</h2>
+
+<form method="POST">
+    <label>Select Appointment:</label>
+    <select name="appointment_id" required>
+        {% for a in appointments %}
+        <option value="{{ a.id }}">
+            {{ a.patient_email }} | {{ a.date }} {{ a.time }} | Status: {{ a.status }}
+        </option>
+        {% endfor %}
+    </select>
+
+    <label>Diagnosis:</label>
+    <textarea name="diagnosis" required></textarea>
+
+    <button type="submit">Submit</button>
+</form>
+{% endblock %}
